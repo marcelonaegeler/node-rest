@@ -1,0 +1,26 @@
+<a href="#">Lista de usuários</a>
+<form action="" class="formUser" method="post">
+	<div>
+		<label>
+			Name:
+			<input type="text" name="name" value="<%= user.name %>">
+		</label>
+	</div>
+	<div>
+		<label>
+			Email: 
+			<input type="text" name="email" value="<%= user.email %>">
+		</label>
+	</div>
+	<div>
+		<label>
+			Username: 
+			<input type="text" name="username" value="<%= user.username %>">
+		</label>
+	</div>
+	<% if(user._id) { %>
+	<input type="hidden" name="_id" value="<%= user._id %>">
+	<% } %>
+	
+	<button type="submit">Save</button>
+</form>

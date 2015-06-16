@@ -1,0 +1,18 @@
+<table>
+	<thead>
+		<tr>
+			<td>Name</td>
+			<td>Username</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		<% _.each(users, function(user) { %>
+			<tr>
+				<td><%= user.get('name') %></td>
+				<td><%= user.get('username') %></td>
+				<td><a href="#/user/<%= user.get('_id') %>">Editar</a></td>
+			</tr>
+		<% }); %>
+	</tbody>
+</table>

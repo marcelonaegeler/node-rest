@@ -1,0 +1,12 @@
+{
+  "name": "test-rest'",
+  "version": "0.0.1",
+  "homepage": "https://github.com/marcelonaegeler/node-test.git",
+  "license": "MIT",
+  "devDependencies": {
+    "requirejs": "~2.1.17",
+    "jquery": "~1.10.2",
+    "underscore": "~1.8.3",
+    "backbone": "~1.2.1"
+  }
+}
