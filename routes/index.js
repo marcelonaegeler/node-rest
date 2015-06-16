@@ -5,9 +5,22 @@ module.exports = function() {
 		;
 
 	router.get('/', function(req, res) {
-		fs.readFile(__dirname +'/../public/index.html', 'utf-8', function(err, text) {
+        var collection = req.db.get('users');
+        var user = {
+            name: 'Marcelo A Naegeler'
+            , email: 'marcelo.andre.naegeler@gmail.com'
+            , username: 'marcelonaegeler'
+        };
+        /*
+		collection.insert(user, function(err, docs) {
+			if(err) throw err;
+			res.json(docs);
+		});
+		*/
+        fs.readFile(__dirname +'/../public/index.html', 'utf-8', function(err, text) {
 			res.send(text);
 		});
+        
 	});
 
 	router.get('/users', function(req, res) {
@@ -19,7 +32,7 @@ module.exports = function() {
 		});
 	});
 
-	router.get('/user/:id?', function(req, res) {
+	router.get('/user/?:id?', function(req, res) {
 		var collection = req.db.get('users');
 		var id = req.params.id;
 		collection.findById(id, {}, function(err, doc) {

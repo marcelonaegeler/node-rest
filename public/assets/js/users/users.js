@@ -63,15 +63,13 @@ define(
 
 					this.template(function(html) {
 						$scope.getData(options.id, function(data) {
-							console.log(data);
 							var user = {
-								name: data.models[0].get('name') || ''
-								, email: data.models[0].get('email') || ''
-								, username: data.models[0].get('username') || ''
-								, _id: data.models[0].get('_id') || ''
+								name: data ? data.models[0].get('name') : ''
+								, email: data ? data.models[0].get('email') : ''
+								, username: data ? data.models[0].get('username') : ''
+								, _id: data ? data.models[0].get('_id') : ''
 							}
 							
-							console.log(user);
 							var template = _.template(html)({ user: user });
 							$scope.$el.html(template);
 						})
