@@ -9,7 +9,6 @@ define(
     'use strict';
 
     var User = function() {
-
     	var GetUsers = Backbone.Collection.extend({
 				url: '/users'
 			});
@@ -51,7 +50,6 @@ define(
 						var user = new getDataUser();
 						user.fetch({
 							success: function(data) {
-								console.log(data);
 								return callback(data);
 							}
 						});
@@ -87,6 +85,7 @@ define(
 						, type: 'put'
 						, success: function(data) {
 							alert('Salvo!');
+							console.log(data);
 							router.navigate('', { trigger: true });
 						}
 						, error: function(err) {
@@ -101,8 +100,9 @@ define(
 			var Router = Backbone.Router.extend({
 				routes: {
 					'': 'home'
-					, 'user': 'user'
-					, 'user/:id': 'user'
+					, 'user(/)(:id)': 'user'
+					, 'user/delete/:id': 'delete-user'
+					, '*path':  'defaultRoute'
 				}
 			});
 
@@ -118,11 +118,23 @@ define(
 			router.on('route:user', function(id) {
 				userForm.render({ id: id });
 			});
+
+			router.on('route:delete-user', function(id) {
+				$.ajax({
+					type: 'delete'
+					, url: '/user/'+ id
+					, success: function(data) {
+						router.navigate('', { trigger: true });
+					}
+				});
+			});
+
+			router.on('route:defaultRoute', function(id) {
+				router.navigate('', { trigger: true });
+			});
 			
 			Backbone.history.start();
-
-		}
-    
+		}    
     return new User;
 	}
 );

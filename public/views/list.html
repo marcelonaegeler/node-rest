@@ -1,3 +1,5 @@
+<a href="#/user">Adicionar usuário</a>
+
 <table>
 	<thead>
 		<tr>
@@ -11,7 +13,10 @@
 			<tr>
 				<td><%= user.get('name') %></td>
 				<td><%= user.get('username') %></td>
-				<td><a href="#/user/<%= user.get('_id') %>">Editar</a></td>
+				<td>
+					<a href="#/user/<%= user.get('_id') %>">Editar</a>
+					<a href="#/user/delete/<%= user.get('_id') %>">Excluir</a>
+				</td>
 			</tr>
 		<% }); %>
 	</tbody>

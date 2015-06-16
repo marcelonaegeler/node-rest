@@ -6,21 +6,9 @@ module.exports = function() {
 
 	router.get('/', function(req, res) {
         var collection = req.db.get('users');
-        var user = {
-            name: 'Marcelo A Naegeler'
-            , email: 'marcelo.andre.naegeler@gmail.com'
-            , username: 'marcelonaegeler'
-        };
-        /*
-		collection.insert(user, function(err, docs) {
-			if(err) throw err;
-			res.json(docs);
-		});
-		*/
         fs.readFile(__dirname +'/../public/index.html', 'utf-8', function(err, text) {
 			res.send(text);
-		});
-        
+		});        
 	});
 
 	router.get('/users', function(req, res) {
@@ -46,8 +34,33 @@ module.exports = function() {
 	router.put('/user', function(req, res) {
 		var collection = req.db.get('users');
 
-		console.log('PUT /user: ', req.body);
-		res.json(req.body);
+		var user = {
+			name: req.body.name
+			, email: req.body.email
+			, username: req.body.username
+		};
+
+		if(req.body._id) {
+			collection.findAndModify({ _id: req.body._id }, user, function(err, doc) {
+				if(err) throw err;
+				res.json(doc);
+			});
+
+			return;
+		}
+		collection.insert(user, function(err, doc) {
+			if(err) throw err;
+			res.json(doc);
+		});
+	});
+
+	router.delete('/user/:id', function(req, res) {
+		var collection = req.db.get('users');
+		collection.remove({ _id: req.params.id }, function(err, docs) {
+			if(err) throw err;
+			res.json(docs);
+		});
+		return;
 	});
 
 	return router;
