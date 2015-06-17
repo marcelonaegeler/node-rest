@@ -1,0 +1,106 @@
+* {
+	font-family: Roboto, Arial, sans-serif;
+}
+
+table {
+	width: 100%;
+}
+
+thead {
+	font-weight: bold;
+	text-align: center;
+	border-bottom: 1px solid #eee;
+	background-color: #eee;
+}
+
+tbody tr:nth-child(2) {
+	background-color: #f9f9f9;
+}
+
+td {
+	padding: 10px;
+}
+
+.container-head {
+	padding: 10px;
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #eee;
+}
+
+.container-body {
+	padding: 10px;
+}
+
+.page {
+	margin: 0 auto;
+	width: 400px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.btn {
+	display: inline-block;
+	text-decoration: none;
+	border: 1px solid;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+.btn + .btn {
+	margin-left: 10px;
+}
+
+.sm {
+	padding: 6px 10px;
+	font-size: 14px;
+}
+
+.md {
+	padding: 10px 12px;
+	font-size: 16px;
+}
+
+.regular {
+	color: #555;
+	border-color: #ddd;
+	background-color: #eee;
+}
+
+.danger {
+	color: #fafafa;
+	border-color: #E22E2E;
+	background-color: #DA4949;
+}
+
+.save {
+	color: #fff;
+	border-color: #644FC3;
+	background-color: #7967CA;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.btn-row.text-right button {
+	margin-right: -10px;
+}
+
+.form-row {
+	margin: 15px 11px;
+}
+
+.form-row input,
+.form-row textarea {
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 18px;
+	color: #666;
+	padding: 10px;
+	width: 100%;
+	margin: 0 -10px;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+}

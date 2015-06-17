@@ -1,26 +1,26 @@
-<a href="#">Lista de usuários</a>
-<form action="" class="formUser" method="post">
-	<div>
-		<label>
-			Name:
-			<input type="text" name="name" value="<%= user.name %>">
-		</label>
+<div class="container">
+	<div class="container-head">
+		<a href="#" class="btn regular md">Lista de usuários</a>
 	</div>
-	<div>
-		<label>
-			Email: 
-			<input type="text" name="email" value="<%= user.email %>">
-		</label>
+	<div class="container-body">
+		<form action="" class="formUser" method="post">
+			<div class="form-row">
+				<input type="text" name="name" value="<%= user.name %>" placeholder="Name">
+			</div>
+			<div class="form-row">
+				<input type="text" name="email" value="<%= user.email %>" placeholder="Email">
+			</div>
+			<div class="form-row">
+				<input type="text" name="username" value="<%= user.username %>" placeholder="Username">
+			</div>
+			<% if(user._id) { %>
+			<input type="hidden" name="_id" value="<%= user._id %>">
+			<% } %>
+			<div class="form-row">
+				<div class="btn-row text-right">
+					<button type="submit" class="btn md save">Save</button>
+				</div>
+			</div>
+		</form>
 	</div>
-	<div>
-		<label>
-			Username: 
-			<input type="text" name="username" value="<%= user.username %>">
-		</label>
-	</div>
-	<% if(user._id) { %>
-	<input type="hidden" name="_id" value="<%= user._id %>">
-	<% } %>
-	
-	<button type="submit">Save</button>
-</form>
+</div>

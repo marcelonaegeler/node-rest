@@ -9,6 +9,11 @@ define(
     'use strict';
 
     var User = function() {
+    	var loadingTemplate = '<div class="container">'
+    		+'<div class="container-head">'
+    		+'<div class="text-center">Loading...</div></div></div>'
+    		;
+
     	var GetUsers = Backbone.Collection.extend({
 				url: '/users'
 			});
@@ -17,7 +22,7 @@ define(
 				el: '.page'
 				, render: function() {
 					var $scope = this;
-					this.$el.html('Loading');
+					this.$el.html(loadingTemplate);
 
 					var view = $.get('/views/list.html');
 
@@ -57,7 +62,7 @@ define(
 				}
 				, render: function(options) {
 					var $scope = this;
-					this.$el.html('Loading');
+					this.$el.html(loadingTemplate);
 
 					this.template(function(html) {
 						$scope.getData(options.id, function(data) {
