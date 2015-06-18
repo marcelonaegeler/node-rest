@@ -2,6 +2,31 @@
 	font-family: Roboto, Arial, sans-serif;
 }
 
+/*
+* Containers
+*/
+.page {
+	margin: 0 auto;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	overflow: hidden;
+	min-width: 480px;
+}
+
+.container-head {
+	padding: 10px;
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #eee;
+}
+
+.container-body {
+	padding: 10px;
+}
+
+/*
+* Tables
+*/
 table {
 	width: 100%;
 }
@@ -17,28 +42,17 @@ tbody tr:nth-child(2) {
 	background-color: #f9f9f9;
 }
 
+tbody tr:hover {
+	background-color: #f3f3f3;
+}
+
 td {
 	padding: 10px;
 }
 
-.container-head {
-	padding: 10px;
-	background-color: #f9f9f9;
-	border-bottom: 1px solid #eee;
-}
-
-.container-body {
-	padding: 10px;
-}
-
-.page {
-	margin: 0 auto;
-	width: 400px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	overflow: hidden;
-}
-
+/*
+* Buttons
+*/
 .btn {
 	display: inline-block;
 	text-decoration: none;
@@ -79,6 +93,9 @@ td {
 	background-color: #7967CA;
 }
 
+/*
+* Form rows and options
+*/
 .text-right {
 	text-align: right;
 }
