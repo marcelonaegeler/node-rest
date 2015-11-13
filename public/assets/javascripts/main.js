@@ -1,31 +1,26 @@
 var config = {paths: {}, shim: {}};
   
 config.paths = {
-  jquery: '/vendor/jquery/jquery.min'
-  , underscore: '/vendor/underscore/underscore-min'
-  , backbone: '/vendor/backbone/backbone-min'
-  , users: 'users/users'
+  react: '/vendor/react/react'
+  , jsx: '/vendor/react/JSXTransformer'
 }
 
 // if you want, you can set your shim here, like this:
 config.shim = {
-  jquery: {
-    exports: '$'
-  }
-  , underscore: {
-    exports: '_'
-  }
-  , backbone: {
-    deps: [
-      'underscore'
-      , 'jquery'
-    ]
-    , exports: 'Backbone'
+  jsx: {
+    scriptType: 'text/jsx'
+    , deps: [ 'react' ]
   }
 };
 
+// Set config
 require.config(config);
-require([ 
-    'users'
-  ]
-);
+
+// Get the required modules from body's 'data-require'
+var modules = document.body.dataset.require.split(',');
+var requireModules = [];
+for(var module in modules) {
+  requireModules.push(modules[module].trim());
+}
+
+require(requireModules);
